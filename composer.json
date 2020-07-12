@@ -1,0 +1,38 @@
+{
+    "name": "dcblogdev/laravel-sent-emails",
+    "description": "Store outgoing emails in Laravel",
+    "keywords": [
+        "dcblogdev",
+        "laravel",
+        "sent-emails"
+    ],
+    "homepage": "https://github.com/dcblogdev/laravel-sent-emails",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "David Carr",
+            "email": "dave@dcblog.dev",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "illuminate/support": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dcblogdev\\LaravelSentEmails\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Dcblogdev\\LaravelSentEmails\\SentEmailsServiceProvider"
+            ],
+            "aliases": {
+                "SentEmails": "Dcblogdev\\LaravelSentEmails\\Facades\\SentEmailsFacade"
+            }
+        }
+    }
+}
