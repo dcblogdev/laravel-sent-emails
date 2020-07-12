@@ -1,7 +1,7 @@
 # Record and view all sent emails
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/dcblogdev/laravel-sent-emails.svg?style=flat-square)](https://packagist.org/packages/dcblogdev/sent-emails)
-[![Total Downloads](https://img.shields.io/packagist/dt/dcblogdev/laravel-sent-emails.svg?style=flat-square)](https://packagist.org/packages/dcblogdev/sent-emails)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/dcblogdev/laravel-sent-emails.svg?style=flat-square)](https://packagist.org/packages/dcblogdev/laravel-sent-emails)
+[![Total Downloads](https://img.shields.io/packagist/dt/dcblogdev/laravel-sent-emails.svg?style=flat-square)](https://packagist.org/packages/dcblogdev/laravel-sent-emails)
 
 ![Example UI](laravel-sent-emails.png)
 
