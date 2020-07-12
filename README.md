@@ -3,6 +3,8 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/dcblogdev/laravel-sent-emails.svg?style=flat-square)](https://packagist.org/packages/dcblogdev/sent-emails)
 [![Total Downloads](https://img.shields.io/packagist/dt/dcblogdev/laravel-sent-emails.svg?style=flat-square)](https://packagist.org/packages/dcblogdev/sent-emails)
 
+![Example UI](laravel-sent-emails.png)
+
 ## Installation
 
 You can install the package via composer:
