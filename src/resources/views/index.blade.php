@@ -21,7 +21,12 @@
             <div class="flex-1 overflow-y-auto">
                 @foreach($emails as $email)
                     @php
-                    [$from, $address] = explode('<', $email->from);
+                    $parts = explode('<', $email->from);
+                    if (isset($parts[1])) {
+                        $from = $parts[0];
+                    } else {
+                        $from = $parts[0];
+                    }
                     @endphp
                     <a href="#" class="block px-6 pt-3 pb-4 bg-white emailitem" data-id="{{ $email->id }}">
                         <div class="flex justify-between">
