@@ -5,6 +5,8 @@
 
 ![Example UI](laravel-sent-emails.png)
 
+Watch a video walkthrough https://www.youtube.com/watch?v=Oj_OF5n4l4k&feature=youtu.be
+
 ## Installation
 
 You can install the package via composer:
