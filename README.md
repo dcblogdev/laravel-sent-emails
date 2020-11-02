@@ -3,7 +3,7 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/dcblogdev/laravel-sent-emails.svg?style=flat-square)](https://packagist.org/packages/dcblogdev/laravel-sent-emails)
 [![Total Downloads](https://img.shields.io/packagist/dt/dcblogdev/laravel-sent-emails.svg?style=flat-square)](https://packagist.org/packages/dcblogdev/laravel-sent-emails)
 
-![Example UI](laravel-sent-emails.png)
+![Example UI](https://repository-images.githubusercontent.com/279137838/610e3200-1d0e-11eb-8a39-7812708a55cd)
 
 Watch a video walkthrough https://www.youtube.com/watch?v=Oj_OF5n4l4k&feature=youtu.be
 
