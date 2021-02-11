@@ -46,7 +46,7 @@
     </main>
 </div>
 
-{{ $emails->links() }}
+{{ $emails->links('sentemails::pagination') }}
 
 <script>
 const emailcontent = document.getElementById('emailcontent');
