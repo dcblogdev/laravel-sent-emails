@@ -28,10 +28,10 @@
                         $from = $parts[0];
                     }
                     @endphp
-                    <a href="#" class="block px-6 pt-3 pb-4 bg-white emailitem" data-id="{{ $email->id }}">
+                    <a href="#" class="block px-6 pt-3 pb-4 bg-white emailitem border-b-2" data-id="{{ $email->id }}">
                         <div class="flex justify-between">
                         <span class="text-sm font-semibold text-gray-900">{{ $from }}</span>
-                        <span class="text-sm text-gray-500">{{ date('F jS Y H:i A', strtotime($email->created_at)) }}</span>
+                        <span class="text-xs text-gray-500">{{ $email->created_at->diffForHumans() }}</span>
                         </div>
                         <p class="text-sm text-gray-900">{{ $email->subject }}</p>
                     </a>

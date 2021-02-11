@@ -22,7 +22,7 @@
                 <span class="text-xs text-gray-600">{{ date('F jS Y H:i A', strtotime($email->created_at)) }}</span>
             </div>
         </div>
-        <div class="mt-6 text-gray-800 text-sm">
+        <div class="mt-6 text-gray-800 text-sm border-t-2">
             <iframe src="{{ url(config('sentemails.routepath')."/body/$email->id")}}" width="100%" height="600px"></iframe>
         </div>
     </article>
