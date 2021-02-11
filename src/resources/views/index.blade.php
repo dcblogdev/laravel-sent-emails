@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-gray-200">
 
 <header class="flex flex-shrink-0 bg-gray-800">
     <div class="w-64 flex-shrink-0 px-4 py-3">
@@ -16,8 +16,8 @@
 <div class="flex flex-1 overflow-hidden">
 
     <main class="flex-1 flex bg-gray-200">
-        
-        <div class="relative flex flex-col w-full max-w-xs flex-grow border-l border-r bg-gray-200">     
+
+        <div class="relative flex flex-col w-full max-w-xs flex-grow border-l border-r bg-gray-200">
             <div class="flex-1 overflow-y-auto">
                 @foreach($emails as $email)
                     @php
@@ -35,16 +35,23 @@
                         </div>
                         <p class="text-sm text-gray-900">{{ $email->subject }}</p>
                     </a>
-                @endforeach 
+                @endforeach
             </div>
         </div>
 
         <div class="flex-1 flex flex-col w-0">
-            <div id='emailcontent'></div>            
+            <div id='emailcontent'></div>
         </div>
 
     </main>
+
 </div>
+
+@if ($emails->count() == 0)
+    <div class="m-10 x-5">
+        <h2 class="text-2xl">{{ config('sentemails.noEmailsMessage') }}</h2>
+    </div>
+@endif
 
 {{ $emails->links('sentemails::pagination') }}
 
