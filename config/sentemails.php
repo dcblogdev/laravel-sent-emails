@@ -5,11 +5,13 @@
  */
 return [
     //set the route path to load the sent emails ui defaults to /sentemails
-    'routepath' => 'sentemails',
+    'routepath'  => 'admin/sentemails',
 
     // set the route middlewares to apply on the sent emails ui
     'middleware' => ['web', 'auth'],
 
     // emails per page
-    'perpage' => 10,
+    'perPage' => 10,
+
+    'noEmailsMessage' => 'No emails have been sent yet.'
 ];
