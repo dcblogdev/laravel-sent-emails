@@ -10,6 +10,9 @@ Watch a video walkthrough https://www.youtube.com/watch?v=Oj_OF5n4l4k&feature=yo
 # Documentation and install instructions 
 [https://dcblog.dev/docs/laravel-sent-emails](https://dcblog.dev/docs/laravel-sent-emails)
 
+![Sample UI](https://user-images.githubusercontent.com/1018170/107695686-d80d7c00-6ca8-11eb-8a49-c08ddfa701fb.png)
+
+
 ## Usage
 
 As soon as a email is sent it will be added to a database table and will be viewable in /sentemails.
