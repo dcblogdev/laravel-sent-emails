@@ -9,7 +9,7 @@ class SentEmailsController extends BaseController
 {
     public function index()
     {
-        $emails = SentEmail::orderby('id', 'desc')->paginate();
+        $emails = SentEmail::orderby('id', 'desc')->paginate(config('sentemails.perpage'));
 
         return view('sentemails::index', compact('emails'));
     }

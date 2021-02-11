@@ -9,4 +9,7 @@ return [
 
     // set the route middlewares to apply on the sent emails ui
     'middleware' => ['web', 'auth'],
+
+    // emails per page
+    'perpage' => 10,
 ];
