@@ -9,10 +9,62 @@
 <body class="bg-gray-200">
 
 <header class="flex flex-shrink-0 bg-gray-800">
-    <div class="w-64 flex-shrink-0 px-4 py-3">
+    <div class="w-full flex-shrink-0 px-4 py-3">
         <span class="ml-4 mr-2 text-sm font-medium text-white">{{ __('Sent Emails') }}</span>
     </div>
 </header>
+
+<div class="flex flex-shrink-0">
+    <div class="w-full flex-shrink-0 px-4 py-3">
+
+        <form action="">
+
+            <div class="grid grid-cols-5 gap-4">
+
+                <div class="mb-5">
+                    <label for="date" class="block text-sm font-medium leading-5 text-gray-700">Date </label>
+                    <div class="rounded-md shadow-sm">
+                        <input type="date" id="date" name="date" value="{{ request('date') }}" class="block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-light-blue-500 focus:border-light-blue-500 sm:text-sm">
+                    </div>
+                </div>
+
+                <div class="mb-5">
+                    <label for="from" class="block text-sm font-medium leading-5 text-gray-700">From </label>
+                    <div class="rounded-md shadow-sm">
+                        <input type="text" id="from" name="from" value="{{ request('from') }}" class="block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-light-blue-500 focus:border-light-blue-500 sm:text-sm">
+                    </div>
+                </div>
+
+                <div class="mb-5">
+                    <label for="to" class="block text-sm font-medium leading-5 text-gray-700">To </label>
+                    <div class="rounded-md shadow-sm">
+                        <input type="text" id="to" name="to" value="{{ request('to') }}" class="block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-light-blue-500 focus:border-light-blue-500 sm:text-sm">
+                    </div>
+                </div>
+
+                <div class="mb-5">
+                    <label for="subject" class="block text-sm font-medium leading-5 text-gray-700">Subject </label>
+                    <div class="rounded-md shadow-sm">
+                        <input type="text" id="subject" name="subject" value="{{ request('subject') }}" class="block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-light-blue-500 focus:border-light-blue-500 sm:text-sm">
+                    </div>
+                </div>
+
+                <div class="">
+                    <div class="mt-6">
+                        <button type="submit" class="inline-flex items-center py-1 px-2 border border-transparent text-xs leading-4 font-medium rounded text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue active:bg-blue-700 transition ease-in-out duration-150">Search Emails</button>
+                        <a href="{{ url(config('sentemails.routepath')) }}" class="inline-flex items-center py-1 px-2 border border-transparent text-xs leading-4 font-medium rounded text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue active:bg-blue-700 transition ease-in-out duration-150">Reset</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+
+
 <div class="flex flex-1 overflow-hidden">
 
     <main class="flex-1 flex bg-gray-200">
