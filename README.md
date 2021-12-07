@@ -7,11 +7,51 @@
 
 Watch a video walkthrough https://www.youtube.com/watch?v=Oj_OF5n4l4k&feature=youtu.be
 
-# Documentation and install instructions 
-[https://dcblog.dev/docs/laravel-sent-emails](https://dcblog.dev/docs/laravel-sent-emails)
-
 ![Sample UI](https://user-images.githubusercontent.com/1018170/107695686-d80d7c00-6ca8-11eb-8a49-c08ddfa701fb.png)
 
+## Installation
+
+You can install the package via composer:
+
+```
+composer require dcblogdev/laravel-sent-emails
+```
+
+## Migration
+
+You can publish the migration with:
+
+```
+php artisan vendor:publish --provider="Dcblogdev\LaravelSentEmails\SentEmailsServiceProvider" --tag="migrations"
+```
+
+After the migration has been published you can the tables by running the migration:
+
+```
+php artisan migrate
+```
+
+## Config
+
+You can publish the config with:
+
+php artisan vendor:publish --provider="Dcblogdev\LaravelSentEmails\SentEmailsServiceProvider" --tag="config"
+After the config has been published you can change the route path for sentemails from /sentemails to anything you like such as /admin/sentemails:
+
+```
+'routepath' => 'sentemails'
+```
+
+## Views
+You can publish the view with:
+
+```
+php artisan vendor:publish --provider="Dcblogdev\LaravelSentEmails\SentEmailsServiceProvider" --tag="views"
+```
+
+The views will be published to resources/views/vendor/sentemails
+
+You can change the views to match your theme if desired.
 
 ## Usage
 
