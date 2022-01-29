@@ -13,39 +13,31 @@ class EmailLogger
 
         SentEmail::create([
             'date'        => date('Y-m-d H:i:s'),
-            'from'        => $this->formatAddressField($message, 'From'),
-            'to'          => $this->formatAddressField($message, 'To'),
-            'cc'          => $this->formatAddressField($message, 'Cc'),
-            'bcc'         => $this->formatAddressField($message, 'Bcc'),
+            'from'        => $this->formatAddressField($message->getFrom()),
+            'to'          => $this->formatAddressField($message->getTo()),
+            'cc'          => $this->formatAddressField($message->getCc()),
+            'bcc'         => $this->formatAddressField($message->getBcc()),
             'subject'     => $message->getSubject(),
-            'body'        => $message->getBody()
+            'body'        => $message->getHtmlBody()
         ]);
     }
 
     /**
-     * Format address strings for sender, to, cc, bcc.
+     * Format address strings for from, to, cc, bcc.
      *
-     * @param $message
      * @param $field
      * @return null|string
      */
-    function formatAddressField($message, $field)
+    function formatAddressField($field): ?string
     {
-        $headers = $message->getHeaders();
-
-        if (!$headers->has($field)) {
-            return null;
-        }
-
-        $mailboxes = $headers->get($field)->getFieldBodyModel();
-
         $strings = [];
-        foreach ($mailboxes as $email => $name) {
-            $mailboxStr = $email;
-            if (null !== $name) {
-                $mailboxStr = $name . ' <' . $mailboxStr . '>';
+        foreach($field as $row) {
+            $email = $row->getAddress();
+            $name = $row->getName();
+            if ($name !='') {
+                $email = $name.' <'.$email.'>';
             }
-            $strings[] = $mailboxStr;
+            $strings[] = $email;
         }
         return implode(', ', $strings);
     }
