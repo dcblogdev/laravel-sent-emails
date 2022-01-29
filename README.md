@@ -11,6 +11,8 @@ Watch a video walkthrough https://www.youtube.com/watch?v=Oj_OF5n4l4k&feature=yo
 
 ## Installation
 
+> Note version 2+ requires Laravel 9+
+
 You can install the package via composer:
 
 ```
