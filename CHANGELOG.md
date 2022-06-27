@@ -37,3 +37,7 @@ Allow to configure route middlewares.
 ## 2.0.1
 
 - Merged PR #7 store body emails as compressed strings
+
+## 2.0.2
+
+- added citco/carbon to composer.json
