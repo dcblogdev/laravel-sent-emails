@@ -33,3 +33,7 @@ Allow to configure route middlewares.
 ## 2.0.0 
 
 - Added support for Laravel 9, updated to work with Symfony Mailer, is not backwards compatible.
+
+## 2.0.1
+
+- Merged PR #7 store body emails as compressed strings
