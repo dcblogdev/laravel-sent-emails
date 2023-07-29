@@ -16,6 +16,7 @@
                     {{ __('To') }}: {{ $email->to }}<br>
                     @if ($email->cc !=''){{ __('CC') }}: {{ $email->cc }}<br>@endif
                     @if ($email->bcc !=''){{ __('BCC') }}: {{ $email->bcc }}<br>@endif
+                    @if ($email->attachments !=NULL){{ __('Attachments') }}: {{ $email->attachments }}<br>@endif
                 </span>
             </p>
             <div class="flex items-center">
