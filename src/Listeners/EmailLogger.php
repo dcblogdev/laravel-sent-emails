@@ -18,7 +18,8 @@ class EmailLogger
             'cc'          => $this->formatAddressField($message->getCc()),
             'bcc'         => $this->formatAddressField($message->getBcc()),
             'subject'     => $message->getSubject(),
-            'body'        => $message->getHtmlBody()
+            'body'        => $message->getHtmlBody(),
+            'attachments' => count($message->getAttachments()),
         ]);
     }
 
