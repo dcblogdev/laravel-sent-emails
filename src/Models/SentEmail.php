@@ -8,10 +8,6 @@ class SentEmail extends Model
 {
     protected $guarded = [];
 
-    protected $casts = [
-    //   'attachments' => 'array',
-    ];
-
     public function getBodyAttribute($compressed) {
         return config('sentemails.compressBody')
                 ? gzinflate(base64_decode($compressed))
