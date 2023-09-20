@@ -7,6 +7,9 @@ return [
     //set the route path to load the sent emails ui defaults to /sentemails
     'routepath'  => 'admin/sentemails',
 
+    // set the route name
+    'routename' => 'sentemails.index',
+
     // set the route middlewares to apply on the sent emails ui
     'middleware' => ['web', 'auth'],
 
