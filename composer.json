@@ -1,5 +1,5 @@
 {
-    "name": "mztaylor/laravel-sent-emails",
+    "name": "jmztaylor/laravel-sent-emails",
     "description": "Store outgoing emails in Laravel",
     "keywords": [
         "jmztaylor",
