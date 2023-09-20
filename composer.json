@@ -1,12 +1,12 @@
 {
-    "name": "dcblogdev/laravel-sent-emails",
+    "name": "mztaylor/laravel-sent-emails",
     "description": "Store outgoing emails in Laravel",
     "keywords": [
-        "dcblogdev",
+        "jmztaylor",
         "laravel",
         "sent-emails"
     ],
-    "homepage": "https://github.com/dcblogdev/laravel-sent-emails",
+    "homepage": "https://github.com/jmztaylor/laravel-sent-emails",
     "license": "MIT",
     "type": "library",
     "authors": [
