@@ -37,7 +37,10 @@ php artisan migrate
 
 You can publish the config with:
 
+```
 php artisan vendor:publish --provider="Dcblogdev\LaravelSentEmails\SentEmailsServiceProvider" --tag="config"
+```
+
 After the config has been published you can change the route path for sentemails from /sentemails to anything you like such as /admin/sentemails:
 
 ```
