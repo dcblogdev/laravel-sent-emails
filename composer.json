@@ -17,7 +17,7 @@
         }
     ],
     "require": {
-        "illuminate/support": "9.x|10.x",
+        "illuminate/support": "9.x|10.x|11.x",
         "citco/carbon": "^2.0"
     },
     "autoload": {
