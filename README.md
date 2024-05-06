@@ -51,6 +51,16 @@ After the config has been published you can change the route path for sentemails
 'routepath' => 'sentemails'
 ```
 
+### ENV variables
+
+```php
+SENT_EMAILS_ROUTE_PATH=admin/sentemails
+SENT_EMAILS_PER_PAGE=10
+SENT_EMAILS_STORE_EMAILS=true
+SENT_EMAILS_NO_EMAILS_MESSAGE='No emails have been sent'
+SENT_EMAILS_COMPRESS_BODY=true
+```
+
 ## Views
 You can publish the view with:
 

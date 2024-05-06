@@ -5,19 +5,19 @@
  */
 return [
     //set the route path to load the sent emails ui defaults to /sentemails
-    'routepath' => 'sentemails',
+    'routepath' => env('SENT_EMAILS_ROUTE_PATH', 'sentemails'),
 
     // set the route middlewares to apply on the sent emails ui
     'middleware' => ['web', 'auth'],
 
     // emails per page
-    'perPage' => 10,
+    'perPage' => env('SENT_EMAILS_PER_PAGE', 10),
 
-    'storeAttachments' => true,
+    'storeAttachments' => env('SENT_EMAILS_STORE_EMAIL', true),
 
-    'noEmailsMessage' => 'No emails found.',
+    'noEmailsMessage' => env('SENT_EMAILS_NO_EMAILS_MESSAGE', 'No emails found.'),
 
     // body emails are stored as compressed strings to save db disk
     /* Do not change after first mail is stored */
-    'compressBody' => false,
+    'compressBody' => env('SENT_EMAILS_COMPRESS_BODY', false),
 ];
