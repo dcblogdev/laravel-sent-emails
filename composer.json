@@ -18,21 +18,34 @@
     ],
     "require": {
         "illuminate/support": "9.x|10.x|11.x",
-        "citco/carbon": "^2.0"
+        "citco/carbon": "^2.0",
+        "ext-zlib": "*"
+    },
+    "require-dev": {
+        "pestphp/pest": "^2.0",
+        "orchestra/testbench": "^8.22"
     },
     "autoload": {
         "psr-4": {
-            "Dcblogdev\\LaravelSentEmails\\": "src"
+            "Dcblogdev\\LaravelSentEmails\\": "src",
+            "Dcblogdev\\LaravelSentEmails\\Tests\\": "tests"
         }
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/TestCase.php"
+        ]
     },
     "extra": {
         "laravel": {
             "providers": [
                 "Dcblogdev\\LaravelSentEmails\\SentEmailsServiceProvider"
-            ],
-            "aliases": {
-                "SentEmails": "Dcblogdev\\LaravelSentEmails\\Facades\\SentEmailsFacade"
-            }
+            ]
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
         }
     }
 }

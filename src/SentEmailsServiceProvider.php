@@ -2,14 +2,15 @@
 
 namespace Dcblogdev\LaravelSentEmails;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Mail\Events\MessageSending;
-use Dcblogdev\LaravelSentEmails\Listeners\EmailLogger;
 use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\ServiceProvider;
+use Dcblogdev\LaravelSentEmails\Listeners\EmailLogger;
 
 class SentEmailsServiceProvider extends ServiceProvider
 {
-    public function boot()
+    public function boot(): void
     {
         Event::listen(
             MessageSending::class,
@@ -17,7 +18,7 @@ class SentEmailsServiceProvider extends ServiceProvider
         );
 
         $this->loadViewsFrom(__DIR__.'/resources/views', 'sentemails');
-        $this->loadRoutesFrom(__DIR__.'/routes.php');
+        $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
 
         if ($this->app->runningInConsole()) {
 
@@ -38,17 +39,8 @@ class SentEmailsServiceProvider extends ServiceProvider
         }
     }
 
-    /**
-     * Register the application services.
-     */
-    public function register()
+    public function register(): void
     {
-        // Automatically apply the package configuration
         $this->mergeConfigFrom(__DIR__. '/../config/sentemails.php', 'sentemails');
-
-        // Register the main class to use with the facade
-        $this->app->singleton('sent-emails', function () {
-            return new SentEmails;
-        });
     }
 }
