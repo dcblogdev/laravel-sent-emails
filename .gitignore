@@ -3,4 +3,4 @@ vendor
 .idea
 .phpunit.result.cache
 phpunit.xml.bak
-test-results
+test-results.DS_Store
