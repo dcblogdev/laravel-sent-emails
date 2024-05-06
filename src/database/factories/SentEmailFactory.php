@@ -12,14 +12,13 @@ class SentEmailFactory extends Factory
     public function definition(): array
     {
         return [
-            'date'        => date('Y-m-d H:i:s'),
-            'from'        => fake()->email,
-            'to'          => fake()->email,
-            'cc'          => fake()->email,
-            'bcc'         => fake()->email,
-            'subject'     => fake()->sentence,
-            'body'        => fake()->realText
+            'date' => date('Y-m-d H:i:s'),
+            'from' => fake()->email,
+            'to' => fake()->email,
+            'cc' => fake()->email,
+            'bcc' => fake()->email,
+            'subject' => fake()->sentence,
+            'body' => fake()->realText,
         ];
     }
 }
-

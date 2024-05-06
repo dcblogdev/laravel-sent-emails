@@ -30,7 +30,7 @@ class TestCase extends Orchestra
             'prefix' => '',
         ]);
         $app['config']->set('sentemails.middleware', [
-            'web'
+            'web',
         ]);
     }
 }
