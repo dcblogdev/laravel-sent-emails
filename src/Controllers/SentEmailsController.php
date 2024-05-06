@@ -3,8 +3,10 @@
 namespace Dcblogdev\LaravelSentEmails\Controllers;
 
 use Citco\Carbon;
+use Dcblogdev\LaravelSentEmails\Models\SentEmailAttachment;
 use Illuminate\Contracts\View\View;
 use Dcblogdev\LaravelSentEmails\Models\SentEmail;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class SentEmailsController
 {
@@ -53,5 +55,12 @@ class SentEmailsController
         $email = SentEmail::findOrFail($id);
 
         return $email->body;
+    }
+
+    public function downloadAttachment(string $id): BinaryFileResponse
+    {
+        $attachment = SentEmailAttachment::findOrFail($id);
+
+        return response()->download(storage_path('app/'.$attachment->path), $attachment->filename);
     }
 }
