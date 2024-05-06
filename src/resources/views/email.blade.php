@@ -16,6 +16,18 @@
                     {{ __('To') }}: {{ $email->to }}<br>
                     @if ($email->cc !=''){{ __('CC') }}: {{ $email->cc }}<br>@endif
                     @if ($email->bcc !=''){{ __('BCC') }}: {{ $email->bcc }}<br>@endif
+                    @if (config('sentemails.storeAttachments'))
+                        @if ($email->attachments->count() > 0)
+                            {{ __('Attachment') }}
+                        @endif
+                        @foreach($email->attachments as $attachment)
+                            <a
+                                class="bg-gray-200 px-2 py-1 rounded-lg text-xs text-gray-800 hover:text-gray-900 hover:bg-gray-300"
+                                href="{{ route('sentemails.downloadAttachment', $attachment->id) }}">
+                                    {{ $attachment->filename }}
+                            </a>
+                        @endforeach
+                    @endif
                 </span>
             </p>
             <div class="flex items-center">
