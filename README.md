@@ -80,7 +80,7 @@ As soon as an email is sent it will be added to a database table and will be vie
 
 ### Changelog
 
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+Please see [Releases](https://github.com/dcblogdev/laravel-sent-emails/releases) for more information what has changed recently.
 
 ## Contributing
 
