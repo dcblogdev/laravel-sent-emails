@@ -45,4 +45,9 @@ class SentEmail extends Model
     {
         return $this->hasMany(SentEmailAttachment::class);
     }
+
+    public function applyFilters()
+    {
+
+    }
 }
