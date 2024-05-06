@@ -64,9 +64,9 @@ You can change the views to match your theme if desired.
 
 ## Usage
 
-As soon as a email is sent it will be added to a database table and will be viewable in /admin/sentemails.
+As soon as an email is sent it will be added to a database table and will be viewable in /sentemails.
 
-> Note you have to be logged in to be able to see admin/sentemails, if you are not logged in when you attempt to see admin/sentemails you will be redirected to a login route.
+> Note you have to be logged in to be able to see /sentemails, if you are not logged in when you attempt to see /sentemails you will be redirected to a login route.
 
 ### Changelog
 

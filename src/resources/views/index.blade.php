@@ -4,7 +4,7 @@
 <title>{{ __('Sent Emails') }}</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-200">
 
@@ -86,6 +86,9 @@
                         <span class="text-xs text-gray-500">{{ $email->created_at->diffForHumans() }}</span>
                         </div>
                         <p class="text-sm text-gray-900">{{ $email->subject }}</p>
+                        @if(config('sentemails.storeAttachments'))
+                            {{ __('Attachments') }}: {{ $email->attachments->count() }}
+                        @endif
                     </a>
                 @endforeach
             </div>

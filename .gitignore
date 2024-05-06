@@ -2,4 +2,5 @@ composer.lock
 vendor
 .idea
 .phpunit.result.cache
-.phpunit.cache
+phpunit.xml.bak
+test-results
