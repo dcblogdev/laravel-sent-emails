@@ -2,11 +2,10 @@
 
 namespace Dcblogdev\LaravelSentEmails;
 
+use Dcblogdev\LaravelSentEmails\Listeners\EmailLogger;
 use Illuminate\Mail\Events\MessageSending;
 use Illuminate\Support\Facades\Event;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Dcblogdev\LaravelSentEmails\Listeners\EmailLogger;
 
 class SentEmailsServiceProvider extends ServiceProvider
 {
@@ -18,7 +17,7 @@ class SentEmailsServiceProvider extends ServiceProvider
         );
 
         $this->loadViewsFrom(__DIR__.'/resources/views', 'sentemails');
-        $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
+        $this->loadRoutesFrom(__DIR__.'/routes/web.php');
 
         if ($this->app->runningInConsole()) {
 
@@ -28,7 +27,7 @@ class SentEmailsServiceProvider extends ServiceProvider
 
             $timestamp = date('Y_m_d_His', time());
             $this->publishes([
-                __DIR__.'/database/migrations/create_sent_emails_table.php' => $this->app->databasePath() . "/migrations/{$timestamp}_create_sent_emails_table.php",
+                __DIR__.'/database/migrations/create_sent_emails_table.php' => $this->app->databasePath()."/migrations/{$timestamp}_create_sent_emails_table.php",
             ], 'migrations');
 
             // Publishing the views.
@@ -41,6 +40,6 @@ class SentEmailsServiceProvider extends ServiceProvider
 
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__. '/../config/sentemails.php', 'sentemails');
+        $this->mergeConfigFrom(__DIR__.'/../config/sentemails.php', 'sentemails');
     }
 }

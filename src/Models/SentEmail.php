@@ -13,7 +13,7 @@ class SentEmail extends Model
         'cc',
         'bcc',
         'subject',
-        'body'
+        'body',
     ];
 
     public function getBodyAttribute($compressed): string

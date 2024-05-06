@@ -2,8 +2,8 @@
 
 namespace Dcblogdev\LaravelSentEmails\Listeners;
 
-use Illuminate\Mail\Events\MessageSending;
 use Dcblogdev\LaravelSentEmails\Models\SentEmail;
+use Illuminate\Mail\Events\MessageSending;
 
 class EmailLogger
 {
@@ -12,25 +12,25 @@ class EmailLogger
         $message = $event->message;
 
         SentEmail::create([
-            'date'        => date('Y-m-d H:i:s'),
-            'from'        => $this->formatAddressField($message->getFrom()),
-            'to'          => $this->formatAddressField($message->getTo()),
-            'cc'          => $this->formatAddressField($message->getCc()),
-            'bcc'         => $this->formatAddressField($message->getBcc()),
-            'subject'     => $message->getSubject(),
-            'body'        => $message->getHtmlBody()
+            'date' => date('Y-m-d H:i:s'),
+            'from' => $this->formatAddressField($message->getFrom()),
+            'to' => $this->formatAddressField($message->getTo()),
+            'cc' => $this->formatAddressField($message->getCc()),
+            'bcc' => $this->formatAddressField($message->getBcc()),
+            'subject' => $message->getSubject(),
+            'body' => $message->getHtmlBody(),
         ]);
     }
 
-    function formatAddressField(array $field): ?string
+    public function formatAddressField(array $field): ?string
     {
         $strings = [];
 
-        foreach($field as $row) {
+        foreach ($field as $row) {
             $email = $row->getAddress();
             $name = $row->getName();
 
-            if ($name !='') {
+            if ($name != '') {
                 $email = $name.' <'.$email.'>';
             }
 
