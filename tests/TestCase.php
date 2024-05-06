@@ -29,5 +29,8 @@ class TestCase extends Orchestra
             'database' => ':memory:',
             'prefix'   => '',
         ]);
+        $app['config']->set('sentemails.middleware', [
+            'web'
+        ]);
     }
 }
