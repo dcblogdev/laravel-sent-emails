@@ -2,9 +2,9 @@
 
 namespace Dcblogdev\LaravelSentEmails\Listeners;
 
+use Dcblogdev\LaravelSentEmails\Models\SentEmail;
 use Dcblogdev\LaravelSentEmails\Models\SentEmailAttachment;
 use Illuminate\Mail\Events\MessageSending;
-use Dcblogdev\LaravelSentEmails\Models\SentEmail;
 use Illuminate\Support\Facades\Storage;
 
 class EmailLogger
@@ -14,19 +14,19 @@ class EmailLogger
         $message = $event->message;
 
         $email = SentEmail::create([
-            'date'        => date('Y-m-d H:i:s'),
-            'from'        => $this->formatAddressField($message->getFrom()),
-            'to'          => $this->formatAddressField($message->getTo()),
-            'cc'          => $this->formatAddressField($message->getCc()),
-            'bcc'         => $this->formatAddressField($message->getBcc()),
-            'subject'     => $message->getSubject(),
-            'body'        => $message->getHtmlBody()
+            'date' => date('Y-m-d H:i:s'),
+            'from' => $this->formatAddressField($message->getFrom()),
+            'to' => $this->formatAddressField($message->getTo()),
+            'cc' => $this->formatAddressField($message->getCc()),
+            'bcc' => $this->formatAddressField($message->getBcc()),
+            'subject' => $message->getSubject(),
+            'body' => $message->getHtmlBody(),
         ]);
 
         if (config('sentemails.storeAttachments')) {
             foreach ($message->getAttachments() as $attachment) {
 
-                $path = 'sent-emails/' . now() . '-' . $attachment->getFilename();
+                $path = 'sent-emails/'.now().'-'.$attachment->getFilename();
                 Storage::disk('local')->put($path, $attachment->getBody());
 
                 SentEmailAttachment::create([
@@ -38,15 +38,15 @@ class EmailLogger
         }
     }
 
-    function formatAddressField(array $field): ?string
+    public function formatAddressField(array $field): ?string
     {
         $strings = [];
 
-        foreach($field as $row) {
+        foreach ($field as $row) {
             $email = $row->getAddress();
             $name = $row->getName();
 
-            if ($name !='') {
+            if ($name != '') {
                 $email = $name.' <'.$email.'>';
             }
 

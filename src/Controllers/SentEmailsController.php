@@ -3,9 +3,9 @@
 namespace Dcblogdev\LaravelSentEmails\Controllers;
 
 use Citco\Carbon;
+use Dcblogdev\LaravelSentEmails\Models\SentEmail;
 use Dcblogdev\LaravelSentEmails\Models\SentEmailAttachment;
 use Illuminate\Contracts\View\View;
-use Dcblogdev\LaravelSentEmails\Models\SentEmail;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class SentEmailsController
@@ -20,20 +20,20 @@ class SentEmailsController
             $to = request('to');
             $subject = request('subject');
 
-            if ($date !='') {
+            if ($date != '') {
                 $date = Carbon::parse($date)->format('Y-m-d');
                 $emails->where('date', '=', $date);
             }
 
-            if ($from !='') {
+            if ($from != '') {
                 $emails->where('from', 'like', "%$from%");
             }
 
-            if ($to !='') {
+            if ($to != '') {
                 $emails->where('to', 'like', "%$to%");
             }
 
-            if ($subject !='') {
+            if ($subject != '') {
                 $emails->where('subject', 'like', "%$subject%");
             }
         }

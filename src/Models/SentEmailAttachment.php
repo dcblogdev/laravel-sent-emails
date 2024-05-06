@@ -15,7 +15,7 @@ class SentEmailAttachment extends Model
     protected $fillable = [
         'sent_email_id',
         'filename',
-        'path'
+        'path',
     ];
 
     protected static function newFactory(): SentEmailAttachmentFactory

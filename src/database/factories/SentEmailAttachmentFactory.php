@@ -15,9 +15,8 @@ class SentEmailAttachmentFactory extends Factory
     {
         return [
             'sent_email_id' => SentEmail::factory(),
-            'filename' => Str::random(10) . '.txt',
-            'path' => 'sent-emails/' . Str::random(10) . '.txt'
+            'filename' => Str::random(10).'.txt',
+            'path' => 'sent-emails/'.Str::random(10).'.txt',
         ];
     }
 }
-

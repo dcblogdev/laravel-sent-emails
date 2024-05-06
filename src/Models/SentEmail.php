@@ -18,7 +18,7 @@ class SentEmail extends Model
         'cc',
         'bcc',
         'subject',
-        'body'
+        'body',
     ];
 
     protected static function newFactory(): SentEmailFactory

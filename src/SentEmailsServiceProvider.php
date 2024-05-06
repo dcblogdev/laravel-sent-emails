@@ -2,11 +2,10 @@
 
 namespace Dcblogdev\LaravelSentEmails;
 
+use Dcblogdev\LaravelSentEmails\Listeners\EmailLogger;
 use Illuminate\Mail\Events\MessageSending;
 use Illuminate\Support\Facades\Event;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Dcblogdev\LaravelSentEmails\Listeners\EmailLogger;
 
 class SentEmailsServiceProvider extends ServiceProvider
 {
@@ -18,8 +17,8 @@ class SentEmailsServiceProvider extends ServiceProvider
         );
 
         $this->loadViewsFrom(__DIR__.'/resources/views', 'sentemails');
-        $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
-        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
+        $this->loadRoutesFrom(__DIR__.'/routes/web.php');
+        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
 
         if ($this->app->runningInConsole()) {
 
@@ -28,8 +27,8 @@ class SentEmailsServiceProvider extends ServiceProvider
             ], 'config');
 
             $this->publishes([
-                __DIR__.'/database/migrations/2020_07_16_222057_create_sent_emails_table.php' => $this->app->databasePath() . "/migrations/2020_07_16_222057_create_sent_emails_table.php",
-                __DIR__.'/database/migrations/2024_05_07_222057_create_sent_emails_attachments_table.php' => $this->app->databasePath() . "/migrations/{2024_05_07_222057_create_sent_emails_attachments_table.php",
+                __DIR__.'/database/migrations/2020_07_16_222057_create_sent_emails_table.php' => $this->app->databasePath().'/migrations/2020_07_16_222057_create_sent_emails_table.php',
+                __DIR__.'/database/migrations/2024_05_07_222057_create_sent_emails_attachments_table.php' => $this->app->databasePath().'/migrations/{2024_05_07_222057_create_sent_emails_attachments_table.php',
             ], 'migrations');
 
             $this->publishes([
@@ -40,6 +39,6 @@ class SentEmailsServiceProvider extends ServiceProvider
 
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__. '/../config/sentemails.php', 'sentemails');
+        $this->mergeConfigFrom(__DIR__.'/../config/sentemails.php', 'sentemails');
     }
 }

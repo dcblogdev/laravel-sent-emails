@@ -23,7 +23,8 @@
     },
     "require-dev": {
         "pestphp/pest": "^2.0",
-        "orchestra/testbench": "^8.22"
+        "orchestra/testbench": "^8.22",
+        "laravel/pint": "^1.15"
     },
     "autoload": {
         "psr-4": {
