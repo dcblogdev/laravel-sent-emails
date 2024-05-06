@@ -3,12 +3,12 @@
 namespace Dcblogdev\LaravelSentEmails\Controllers;
 
 use Citco\Carbon;
-use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Contracts\View\View;
 use Dcblogdev\LaravelSentEmails\Models\SentEmail;
 
-class SentEmailsController extends BaseController
+class SentEmailsController
 {
-    public function index()
+    public function index(): View
     {
         $emails = SentEmail::orderby('id', 'desc');
 
@@ -41,15 +41,17 @@ class SentEmailsController extends BaseController
         return view('sentemails::index', compact('emails'));
     }
 
-    public function email($id) {
+    public function email(string $id): View
+    {
         $email = SentEmail::findOrFail($id);
 
         return view('sentemails::email', compact('email'));
     }
 
-    public function body($id)
+    public function body(string $id): string
     {
         $email = SentEmail::findOrFail($id);
+
         return $email->body;
     }
 }

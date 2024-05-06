@@ -7,7 +7,7 @@ use Dcblogdev\LaravelSentEmails\Models\SentEmail;
 
 class EmailLogger
 {
-    public function handle(MessageSending $event)
+    public function handle(MessageSending $event): void
     {
         $message = $event->message;
 
@@ -22,23 +22,21 @@ class EmailLogger
         ]);
     }
 
-    /**
-     * Format address strings for from, to, cc, bcc.
-     *
-     * @param $field
-     * @return null|string
-     */
-    function formatAddressField($field): ?string
+    function formatAddressField(array $field): ?string
     {
         $strings = [];
+
         foreach($field as $row) {
             $email = $row->getAddress();
             $name = $row->getName();
+
             if ($name !='') {
                 $email = $name.' <'.$email.'>';
             }
+
             $strings[] = $email;
         }
+
         return implode(', ', $strings);
     }
 }
