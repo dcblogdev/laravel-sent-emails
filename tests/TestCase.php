@@ -3,11 +3,14 @@
 namespace Dcblogdev\LaravelSentEmails\Tests;
 
 use Dcblogdev\LaravelSentEmails\SentEmailsServiceProvider;
+use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
 use Illuminate\Support\Str;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {
+    use LazilyRefreshDatabase;
+
     protected function getPackageProviders($app): array
     {
         return [
@@ -25,6 +28,9 @@ class TestCase extends Orchestra
             'driver'   => 'sqlite',
             'database' => ':memory:',
             'prefix'   => '',
+        ]);
+        $app['config']->set('sentemails.middleware', [
+            'web'
         ]);
     }
 }

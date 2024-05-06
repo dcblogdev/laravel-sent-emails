@@ -2,8 +2,10 @@
 
 namespace Dcblogdev\LaravelSentEmails\Listeners;
 
+use Dcblogdev\LaravelSentEmails\Models\SentEmailAttachment;
 use Illuminate\Mail\Events\MessageSending;
 use Dcblogdev\LaravelSentEmails\Models\SentEmail;
+use Illuminate\Support\Facades\Storage;
 
 class EmailLogger
 {
@@ -11,7 +13,7 @@ class EmailLogger
     {
         $message = $event->message;
 
-        SentEmail::create([
+        $email = SentEmail::create([
             'date'        => date('Y-m-d H:i:s'),
             'from'        => $this->formatAddressField($message->getFrom()),
             'to'          => $this->formatAddressField($message->getTo()),
@@ -20,6 +22,20 @@ class EmailLogger
             'subject'     => $message->getSubject(),
             'body'        => $message->getHtmlBody()
         ]);
+
+        if (config('sentemails.storeAttachments')) {
+            foreach ($message->getAttachments() as $attachment) {
+
+                $path = 'sent-emails/' . now() . '-' . $attachment->getFilename();
+                Storage::disk('local')->put($path, $attachment->getBody());
+
+                SentEmailAttachment::create([
+                    'sent_email_id' => $email->id,
+                    'filename' => $attachment->getFilename(),
+                    'path' => $path,
+                ]);
+            }
+        }
     }
 
     function formatAddressField(array $field): ?string
