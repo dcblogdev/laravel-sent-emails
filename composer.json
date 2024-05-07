@@ -18,7 +18,8 @@
     ],
     "require": {
         "illuminate/support": "9.x|10.x|11.x",
-        "ext-zlib": "*"
+        "ext-zlib": "*",
+        "doctrine/dbal": "^3.8"
     },
     "require-dev": {
         "pestphp/pest": "^2.0",
