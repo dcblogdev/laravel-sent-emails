@@ -28,7 +28,8 @@ class SentEmailsServiceProvider extends ServiceProvider
 
             $this->publishes([
                 __DIR__.'/database/migrations/2020_07_16_222057_create_sent_emails_table.php' => $this->app->databasePath().'/migrations/2020_07_16_222057_create_sent_emails_table.php',
-                __DIR__.'/database/migrations/2024_05_07_222057_create_sent_emails_attachments_table.php' => $this->app->databasePath().'/migrations/{2024_05_07_222057_create_sent_emails_attachments_table.php',
+                __DIR__.'/database/migrations/2024_05_07_204307_change_body_lengh.php' => $this->app->databasePath().'/migrations/2024_05_07_204307_change_body_lengh.php',
+                __DIR__.'/database/migrations/2024_05_07_222057_create_sent_emails_attachments_table.php' => $this->app->databasePath().'/migrations/2024_05_07_222057_create_sent_emails_attachments_table.php',
             ], 'migrations');
 
             $this->publishes([
