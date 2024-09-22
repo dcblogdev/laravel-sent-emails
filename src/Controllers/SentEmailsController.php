@@ -12,7 +12,7 @@ class SentEmailsController
 {
     public function index(Request $request): View
     {
-        $emails = SentEmail::orderby('id', 'desc')
+        $emails = SentEmail::with('attachments')->orderby('id', 'desc')
             ->applyFilters($request)
             ->paginate(config('sentemails.perPage'));
 
