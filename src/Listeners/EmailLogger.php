@@ -12,7 +12,7 @@ class EmailLogger
     public function handle(MessageSending $event): void
     {
         $message = $event->message;
-
+        $body = $message->getHtmlBody() ?: $message->getTextBody() ?: '';
         $email = SentEmail::create([
             'date' => date('Y-m-d H:i:s'),
             'from' => $this->formatAddressField($message->getFrom()),
@@ -20,7 +20,7 @@ class EmailLogger
             'cc' => $this->formatAddressField($message->getCc()),
             'bcc' => $this->formatAddressField($message->getBcc()),
             'subject' => $message->getSubject(),
-            'body' => $message->getHtmlBody(),
+            'body' => $body,
         ]);
 
         if (config('sentemails.storeAttachments')) {
