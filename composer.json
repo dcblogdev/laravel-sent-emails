@@ -37,6 +37,14 @@
             "tests/TestCase.php"
         ]
     },
+    "scripts": {
+        "lint": "./vendor/bin/pint",
+        "test": "./vendor/bin/pest",
+        "check": [
+            "@lint",
+            "@test"
+        ]
+    },
     "extra": {
         "laravel": {
             "providers": [
