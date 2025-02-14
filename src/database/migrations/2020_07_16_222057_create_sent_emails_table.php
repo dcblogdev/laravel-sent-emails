@@ -8,6 +8,11 @@ return new class extends Migration
 {
     public function up(): void
     {
+        // avoid conflict with user published migrations
+        if (Schema::hasTable('sent_emails')) {
+            return;
+        }
+
         Schema::create('sent_emails', function (Blueprint $table) {
             $table->increments('id');
             $table->date('date')->nullable();
