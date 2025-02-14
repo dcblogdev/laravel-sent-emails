@@ -19,6 +19,10 @@ class SentEmailsServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/resources/views', 'sentemails');
         $this->loadRoutesFrom(__DIR__.'/routes/web.php');
 
+        if ($this->app->runningUnitTests()) {
+            $this->loadMigrationsFrom(__DIR__.'/database/migrations');
+        }
+
         if ($this->app->runningInConsole()) {
 
             $this->publishes([
