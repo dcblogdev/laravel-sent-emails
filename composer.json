@@ -17,13 +17,13 @@
         }
     ],
     "require": {
-        "illuminate/support": "9.x|10.x|11.x",
+        "illuminate/support": "9.x|10.x|11.x|^12.0",
         "ext-zlib": "*",
-        "doctrine/dbal": "^3.8"
+        "doctrine/dbal": "^3.8|^4.2"
     },
     "require-dev": {
-        "pestphp/pest": "^2.0",
-        "orchestra/testbench": "^8.22",
+        "pestphp/pest": "^2.0|^3.7",
+        "orchestra/testbench": "^8.22|^10.0",
         "laravel/pint": "^1.15"
     },
     "autoload": {
