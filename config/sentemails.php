@@ -20,4 +20,7 @@ return [
     // body emails are stored as compressed strings to save db disk
     /* Do not change after first mail is stored */
     'compressBody' => env('SENT_EMAILS_COMPRESS_BODY', false),
+
+    // Set custom storage disk
+    'storageDisk' => env('SENT_EMAILS_STORAGE_DISK', 'local'),
 ];

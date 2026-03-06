@@ -7,6 +7,7 @@ use Dcblogdev\LaravelSentEmails\Models\SentEmailAttachment;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Illuminate\Support\Facades\Storage;
 
 class SentEmailsController
 {
@@ -37,6 +38,8 @@ class SentEmailsController
     {
         $attachment = SentEmailAttachment::findOrFail($id);
 
-        return response()->download(storage_path('app/'.$attachment->path), $attachment->filename);
+        $path = Storage::disk(config('sentemails.storageDisk', 'local'))->path($attachment->path);
+
+        return response()->download($path, $attachment->filename);
     }
 }

@@ -27,7 +27,7 @@ class EmailLogger
             foreach ($message->getAttachments() as $attachment) {
 
                 $path = 'sent-emails/'.now().'-'.$attachment->getFilename();
-                Storage::disk('local')->put($path, $attachment->getBody());
+                Storage::disk(config('sentemails.storageDisk', 'local'))->put($path, $attachment->getBody());
 
                 SentEmailAttachment::create([
                     'sent_email_id' => $email->id,
